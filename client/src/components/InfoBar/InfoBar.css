@@ -2,8 +2,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #2979FF;
-    border-radius: 21px 21px 0 0;
+    background: #2978ff;
+    /* border-top: #86b3ff solid thin;
+    border-left: #86b3ff solid thin; */
+    border-radius: 25px 25px 0 0;
     height: 60px;
     width: 100%;
   }

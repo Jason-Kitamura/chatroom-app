@@ -7,7 +7,7 @@ import Join from '../Join/Join';
 import Chat from '../Chat/Chat';
 
 import lottie from 'lottie-web';
-import animation from './assets/plusAnimation.json';
+import animation from './assets/plusAnimation3.json';
 
 const ChatBox = () => {
 
@@ -19,19 +19,36 @@ const ChatBox = () => {
 
     //lottie stuff
     let plusAnimation = React.createRef()
-    let anim;
+    const [anim, setAnim] = useState(null)
+
+    // let anim = lottie.loadAnimation({
+    //     container: plusAnimation.current,
+    //     animationData: animation,
+    //     loop: false,
+    //     autoplay: false,
+    // });
+
+
 
     useEffect(() =>{
-        anim = lottie.loadAnimation({
+        const obj = lottie.loadAnimation({
             container: plusAnimation.current,
             animationData: animation,
             loop: false,
             autoplay: false,
         })
+        setAnim(obj);
+        // return() => {
+        //      lottie.destroy()
+        // }
+           
+        
+
     }, [chatState]);
 
     function startAnimation(){
         anim.setDirection(1)
+        anim.setSpeed(1.5)
         anim.play();
     }
     function leaveAnimation(){
@@ -44,7 +61,7 @@ const ChatBox = () => {
         return(
             <div id='newUser'>
                 
-
+                
                 <div className="plusAnimation" 
                     ref={plusAnimation} 
                     onMouseEnter={e => startAnimation()}
