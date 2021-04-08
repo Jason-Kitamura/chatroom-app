@@ -1,0 +1,25 @@
+#newUser{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    align-items: center;
+
+    border-radius: 25px;
+
+}
+#newUser i{
+    color: white;
+    font-size: 5rem;
+    font-weight: 5px;
+    padding: 1rem;
+    transition: 0.1s;
+}
+#newUser i:hover{
+    font-size: 6rem;
+    cursor: pointer;
+}
+.plusAnimation {
+    height: 150px;
+    width: 150px;
+}

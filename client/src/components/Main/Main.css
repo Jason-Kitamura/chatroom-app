@@ -1,0 +1,25 @@
+#main{
+    width: 100%;
+    min-height: 100vh;
+    background: url('./assets/blur1.jpg') center no-repeat;
+    background-position: center;
+}
+#header{
+    margin: 0;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+}
+#chatContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 500px;
+    width: 1000px;
+    margin: auto;
+}
+.chatBox{
+    margin: 1rem;
+    border: rgba(240, 240, 240, 0.418) solid ;
+    border-radius: 25px;
+}
