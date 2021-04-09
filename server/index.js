@@ -61,6 +61,14 @@ io.on('connection', (socket) =>{
             io.to(user.room).emit('message', {user: 'admin', text: `${user.name} has left the chat`});
         }
     });
+    socket.on('disconnect', () =>{
+        console.log('Use has left!!!');
+        const user = removeUser(socket.id);
+
+        if(user){
+            io.to(user.room).emit('message', {user: 'admin', text: `${user.name} has left the chat`});
+        }
+    });
 });
 
 app.use(router);

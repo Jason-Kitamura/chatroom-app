@@ -14,7 +14,7 @@ const InfoBar = ({ room, setChatState }) => {
                 <h3>{room}</h3>
             </div>
             <div className="rightInnerContainer">
-                <img src={closeIcon} alt="close image" onClick={e => setChatState('login')}></img>
+                <img src={closeIcon} alt="close" onClick={e => setChatState('login')}></img>
             </div>
         </div>
     )

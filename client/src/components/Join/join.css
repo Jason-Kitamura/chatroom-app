@@ -13,12 +13,12 @@ html, body {
   box-sizing: border-box;
 }
 
-#join{
+.join{
   position: relative;
   height: 100%;
   width: 100%;
 }
-#closeLogin{
+.closeLogin{
   width: fit-content;
   position: absolute;
   right: 10px;

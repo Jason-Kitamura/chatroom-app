@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
-
-
 import './ChatBox.css';
 
 import Join from '../Join/Join';
 import Chat from '../Chat/Chat';
 
 import lottie from 'lottie-web';
-import animation from './assets/plusAnimation3.json';
+import animation from './assets/plusAnimation1.json';
 
-const ChatBox = () => {
+const ChatBox = ({ id, addCell, removeCell, }) => {
 
     const [ chatState, setChatState ] = useState('new');
-
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
     const [socket, setSocket] = useState({});
@@ -21,31 +18,16 @@ const ChatBox = () => {
     let plusAnimation = React.createRef()
     const [anim, setAnim] = useState(null)
 
-    // let anim = lottie.loadAnimation({
-    //     container: plusAnimation.current,
-    //     animationData: animation,
-    //     loop: false,
-    //     autoplay: false,
-    // });
-
-
-
-    useEffect(() =>{
-        const obj = lottie.loadAnimation({
+    function loadAnimation(){
+          const obj = lottie.loadAnimation({
             container: plusAnimation.current,
             animationData: animation,
+            name: id,
             loop: false,
             autoplay: false,
         })
         setAnim(obj);
-        // return() => {
-        //      lottie.destroy()
-        // }
-           
-        
-
-    }, [chatState]);
-
+    }
     function startAnimation(){
         anim.setDirection(1)
         anim.setSpeed(1.5)
@@ -55,30 +37,40 @@ const ChatBox = () => {
         anim.setDirection(-1);
         anim.play();
     }
+    function addNewCell(){
+        setChatState( 'login' );
+        addCell();
+        console.log('add new cell')
+    }
+    
+    useEffect(() =>{
+        loadAnimation();
+        return() => {
+
+        }
+    }, [chatState]);
+
 
 
     if(chatState === 'new'){
         return(
-            <div id='newUser'>
-                
-                
+            <div className='newUser'>
                 <div className="plusAnimation" 
                     ref={plusAnimation} 
                     onMouseEnter={e => startAnimation()}
-                    onMouseLeave={e => leaveAnimation() }
-                    onClick={e => setChatState('login')}>
+                    onMouseLeave={e => leaveAnimation()}
+                    onClick={e => addNewCell()}>
                 </div>
-                
-                {/* <i class="fas fa-plus" onClick={e => setChatState('login')}></i> */}
             </div>
         )
     } else if ( chatState==='login' ){
         return(
-            <Join 
+            <Join id={id}
                 name={name} setName={setName} 
                 room={room} setRoom={setRoom} 
                 socket={socket} setSocket={setSocket} 
                 chatState={chatState} setChatState={setChatState}
+                removeCell={removeCell}
             />
         )
     } else if ( chatState === 'room' ){
@@ -91,8 +83,6 @@ const ChatBox = () => {
             />
         )
     }
-
-
 }
 
 export default ChatBox;
