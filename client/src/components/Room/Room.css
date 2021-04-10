@@ -1,0 +1,103 @@
+.dropDown{
+    position: relative;
+      margin-top: 20px;
+  }
+  .dropInput {
+    border-radius: 10px 0 0 10px;
+    padding: 15px 20px;
+    margin: 0;
+    width: 100%;
+    border: none;
+    transition: 100ms;
+    background-color: white;
+    font-size: 0.8rem;
+    color: grey;
+    text-align: left;
+  }
+  .dropInput p{
+      margin: 0;
+  }
+  .activeInput{
+    border-radius: 10px 0 0 0;
+  }
+  .dropBtn{
+    background: #2979FF;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .activeBtn{
+    border-radius: 0 10px 0 0;
+  }
+  .dropBtn:hover{
+    cursor: pointer;
+  }
+  .dropBtn i{
+    height: fit-content;
+    color: white;
+  }
+  .dropArrow{
+    transition: 0.3s;
+  }
+  .activeArrow{
+    transform: rotate(180deg) ;
+  }
+  
+  .dropHead{
+    display: grid;
+    position: relative;
+    z-index: 3;
+    grid-template-columns: auto 2rem;
+    border-radius: 10px;
+  }
+  .dropList{
+    z-index: 2;
+    position: absolute;
+    background: #2979FF;
+    padding: 0;
+    margin: 0;
+    padding-top: 10px;
+    margin-top: -10px;
+    width: 100%;
+    text-decoration: none;
+    border-radius: 0 0 10px 10px;
+    visibility: hidden;
+    height: 0rem;
+    transition: .3s;
+  }
+  .activeList{
+    visibility: visible;
+    height: 8rem;
+    transition: 1s;
+  }
+  .dropItem{
+    list-style: none;
+    text-align: left;
+    color: rgba(255, 255, 255, 0);
+    padding: 0.5rem; 
+    font-weight: bold;
+    transition: 0.1s;
+  }
+  
+  .activeItem:hover{
+    cursor: pointer;
+    background-color:#1854bdca ;
+  }
+  .activeItem1{
+    color: white;
+    padding-left: 80px;
+    transition: .5s;
+  }
+  .activeItem2{
+    color: white;
+    padding-left: 80px;
+    transition: .5s;
+
+  }
+  .activeItem3{
+    color: white;
+    padding-left: 80px;
+    transition: .5s;
+
+  }

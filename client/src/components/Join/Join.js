@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './join.css';
 
-import io from 'socket.io-client';
+import Room from '../Room/Room';
 
+import io from 'socket.io-client';
 import closeIcon from '../../icons/closeIcon.png';
 
 
@@ -39,6 +40,7 @@ function Join( {id, name, setName, room, setRoom,  setSocket, setChatState, remo
         }
     }
 
+
     return(
         <div className="join">
             <div className="closeLogin" onClick={e => closeCell()}>
@@ -48,8 +50,9 @@ function Join( {id, name, setName, room, setRoom,  setSocket, setChatState, remo
                 <div className="joinInnerContainer">
                     <h1 className="heading">Join</h1>
                     <div><input placeholder="Name" className="joinInput" type="text" onChange={e =>setName(e.target.value)} /></div>
-                    <div><input placeholder="Room" className="joinInput mt-20" type="text" onChange={e =>setRoom(e.target.value)} /></div>
-                        <button className="button mt-20" type="submit" onClick={e => login(e)}>Sign In</button>
+                    {/* <div><input placeholder="Room" className="joinInput mt-20" type="text" onChange={e =>setRoom(e.target.value)} /></div> */}
+                    <Room id={id} room={room} setRoom={setRoom}/>
+                    <button className="button mt-20" type="submit" onClick={e => login(e)}>Sign In</button>
                  
                 </div>
             </div>
