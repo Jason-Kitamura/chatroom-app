@@ -68,7 +68,7 @@
   }
   .activeList{
     visibility: visible;
-    height: 8rem;
+    height: 7.4rem;
     transition: 1s;
   }
   .dropItem{
@@ -99,5 +99,6 @@
     color: white;
     padding-left: 80px;
     transition: .5s;
+    border-radius: 0 0 10px 10px;
 
   }
